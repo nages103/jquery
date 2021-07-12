@@ -1,0 +1,21 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: jquery-deployment
+  namespace: jquery
+spec:
+  selector:
+    matchLabels:
+      app: jquery-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: jquery-deployment
+    spec:
+      containers:
+      - name: jquery-deployment
+        image:  188696658254.dkr.ecr.us-east-2.amazonaws.com/jquery:1
+        ports:
+        - containerPort: 80
+
